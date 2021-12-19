@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import CandidateTestResults
+from .models import CandidateTestResult
 
-admin.site.register(CandidateTestResults)
+admin.site.register(CandidateTestResult)

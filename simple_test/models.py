@@ -4,7 +4,7 @@ from enum import Enum
 from django.db import models
 
 
-class CandidateTestResults(models.Model):
+class CandidateTestResult(models.Model):
     class TestType(Enum):
         BIG5 = ("big5", "BIG5性格テスト")
 
