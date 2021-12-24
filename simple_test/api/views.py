@@ -1,9 +1,10 @@
-from rest_framework import permissions, status
+from django.contrib.auth.models import User
+from rest_framework import permissions, status, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from simple_test.models import CandidateTestResult
 
-from .serializers import TestResultSerializer
+from .serializers import TestResultSerializer, UserSerializer
 
 
 class TestResultListApiView(APIView):
@@ -62,3 +63,8 @@ class TestResultDetailApiView(APIView):
             return Response({"res": "Object with todo id does not exists"}, status=status.HTTP_400_BAD_REQUEST)
         result_instance.delete()
         return Response({"res": "Object deleted!"}, status=status.HTTP_200_OK)
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
